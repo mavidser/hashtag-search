@@ -204,7 +204,18 @@ def get_data(fbs, gps, igs, tws, gns, query):
             q['type'] = 'video'
             q['user'] = i['from']['name']
             q['userhref'] = 'https://facebook.com/' + i['from']['id']
-            q['picture'] = i['picture']
+            try:
+                q['link'] = i['link']
+            except:
+                q['link'] = q['id']
+            try:
+                q['name'] = i['name']
+            except:
+                q['name']=''
+            try:
+                q['picture'] = i['picture']
+            except:
+                q['picture'] = ''
         fbdict.append(q)
 
     try:
