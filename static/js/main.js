@@ -26,21 +26,15 @@ $(window).resize(function () {
     setWidth($(".posts-inner"));
 });
 
-var fbPos = $('.fb-outer').offset();
-var gpPos = $('.gp-outer').offset();
-var igPos = $('.ig-outer').offset();
-var twPos = $('.tw-outer').offset();
-var gnPos = $('.gn-outer').offset();
+fbPosbottom=$('.fb-outer').offset()+$('.fb-outer').height();
+gpPosbottom=$('.gp-outer').offset();+$('.gp-outer').height();
+igPosbottom=$('.ig-outer').offset();+$('.ig-outer').height();
+twPosbottom=$('.tw-outer').offset();+$('.tw-outer').height();
+gnPosbottom=$('.gn-outer').offset();+$('.gn-outer').height();
 
 $(window).scroll(function(){
-    fbPosbottom=fbPos.top+$('.fb-outer').height();
-    gpPosbottom=gpPos.top+$('.gp-outer').height();
-    igPosbottom=igPos.top+$('.ig-outer').height();
-    twPosbottom=twPos.top+$('.tw-outer').height();
-    gnPosbottom=gnPos.top+$('.gn-outer').height();
     maxPosbottom=Math.max(fbPosbottom,gpPosbottom,igPosbottom,twPosbottom,gnPosbottom)
     var scrollBottom = $(window).scrollTop() + $(window).height();
-    console.log('checking'+scrollBottom+' '+igPosbottom)
     if(scrollBottom >= fbPosbottom && fbPosbottom!=maxPosbottom){
         $('.fb-outer').css('position','fixed').css('bottom','0');
     } else {
