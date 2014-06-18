@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Hashtag Search</title>
@@ -47,6 +48,7 @@
 		<div class="col-md-{{totalcol}} ngn">
 			<div class="row">
 				<div class="col-md-{{col}} {%if not fb %}hidden{%endif%}">
+					<div class="posts-inner fb-outer">
 					{% for i in fbdata %}
 
 					<div class="panel panel-default">
@@ -124,10 +126,11 @@
 						</div>
 					</div>
 					{% endfor %}
-
+				</div>
 				</div>
 
 				<div class="col-md-{{col}} {%if not gp %}hidden{%endif%}">
+					<div class="posts-inner gp-outer">
 					{% for i in gpdata %}
 
 					<div class="panel panel-default">
@@ -154,12 +157,13 @@
 						</div>
 					</div>
 					{% endfor %}
-
+					</div>
 
 
 				</div>
 
 				<div class="col-md-{{col}} {%if not ig %}hidden{%endif%}">
+					<div class="posts-inner ig-outer">
 					{% for i in igdata %}
 
 					<div class="panel panel-default">
@@ -172,8 +176,10 @@
 					</div>
 					{% endfor %}
 				</div>
+				</div>
 
 				<div class="col-md-{{col}} {%if not tw %}hidden{%endif%}">
+					<div class="posts-inner tw-outer">
 					{% for i in twdata %}
 
 					<div class="panel panel-default">
@@ -189,13 +195,13 @@
 						</div>
 					</div>
 					{% endfor %}
-
+				</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="{% if gn %}col-md-{{ncol}}{% else %}col-md-0 hidden{%endif%}">
-
+			<div class="posts-inner gn-outer">
 			{% for i in gndata %}
 
 			<div class="panel panel-default">
@@ -220,7 +226,7 @@
 				</div>
 			</div>
 			{% endfor %}
-
+		</div>
 		</div>
 
 	</div>
