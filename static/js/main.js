@@ -26,16 +26,25 @@ $(window).resize(function () {
     setWidth($(".posts-inner"));
 });
 
-fbPosbottom=$('.fb-outer').offset().top+$('.fb-outer').height();
-gpPosbottom=$('.gp-outer').offset().top+$('.gp-outer').height();
-igPosbottom=$('.ig-outer').offset().top+$('.ig-outer').height();
-twPosbottom=$('.tw-outer').offset().top+$('.tw-outer').height();
-gnPosbottom=$('.gn-outer').offset().top+$('.gn-outer').height();
 
+// $(window).load(function() {
+
+
+// });
+
+
+// console.log('message'+$('.gp-outer').offset().top+' '+$('.gp-outer').height());
 $(window).scroll(function(){
+    // console.log('message');
+    fbPosbottom=140+$('.fb-outer').height();
+    gpPosbottom=140+$('.gp-outer').height();
+    igPosbottom=140+$('.ig-outer').height();
+    twPosbottom=140+$('.tw-outer').height();
+    gnPosbottom=140+$('.gn-outer').height();
     maxPosbottom=Math.max(fbPosbottom,gpPosbottom,igPosbottom,twPosbottom,gnPosbottom)
     var scrollBottom = $(window).scrollTop() + $(window).height();
-    console.log(scrollBottom+' '+fbPosbottom)
+    // console.log('gp'+scrollBottom+' '+gpPosbottom)
+    // console.log('ig'+scrollBottom+' '+igPosbottom)
     if(scrollBottom >= fbPosbottom && fbPosbottom!=maxPosbottom){
         $('.fb-outer').css('position','fixed').css('bottom','0');
     } else {
