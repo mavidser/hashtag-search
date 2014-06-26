@@ -250,7 +250,6 @@ def get_data(fbs, gps, igs, tws, gns, query):
         q['title'] = i['title']
         q['post_url'] = i['url']
         if 'attachments' in i['object']:
-            print i
             if not('objectType' in i['object']['attachments'][0]) or i['object']['attachments'][0]['objectType'] == "article":
                 try:
                     q['url'] = i['object']['attachments'][0]['url']
@@ -391,7 +390,6 @@ def index():
         fbdata, igdata, twdata, gpdata, gndata = get_data(fb, gp, ig, tw, gn, query)
     if query is None: trends = get_trending()
     return render_template('index.html', **locals())
-
 
 @app.route('/fb/')
 def fb():
