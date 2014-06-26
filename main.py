@@ -250,20 +250,21 @@ def get_data(fbs, gps, igs, tws, gns, query):
         q['title'] = i['title']
         q['post_url'] = i['url']
         if 'attachments' in i['object']:
-            if i['object']['attachments'][0]['objectType'] == "photo":
-                try:
-                    q['photo'] = i['object']['attachments'][0]['image']['url']
-                except:
-                    q['photo'] = ''
-
-            if i['object']['attachments'][0]['objectType'] == "article":
+            print i
+            if not('objectType' in i['object']['attachments'][0]) or i['object']['attachments'][0]['objectType'] == "article":
                 try:
                     q['url'] = i['object']['attachments'][0]['url']
                     q['text'] = i['object']['attachments'][0]['displayName']
                 except:
                     q['url'] = ''
 
-            if i['object']['attachments'][0]['objectType'] == "video":
+            elif i['object']['attachments'][0]['objectType'] == "photo":
+                try:
+                    q['photo'] = i['object']['attachments'][0]['image']['url']
+                except:
+                    q['photo'] = ''
+
+            elif i['object']['attachments'][0]['objectType'] == "video":
                 try:
                     q['url'] = i['object']['attachments'][0]['url']
                     q['photo'] = i['object']['attachments'][0]['image']['url']
@@ -398,4 +399,4 @@ def fb():
     return render_template('fb.html', **locals())
 
 
-app.run(debug=True)
+# app.run(debug=True)
