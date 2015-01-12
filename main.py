@@ -297,11 +297,14 @@ def get_trending():
     app_id = Config.get('Yahoo', 'app_id')
 
     ip = request.remote_addr
-    url = "http://freegeoip.net/json/" + ip
+    url = "http://geoip.nekudo.com/api/" + ip
     result = requests.get(url)
 
     results = result.json()
-    area = results['country_name']
+    try:
+        area = results['country']['name']
+    except:
+        area = 'US'
 
     if not app_id:
         raise NotImplementedError('WOEID App Id is empty.')
